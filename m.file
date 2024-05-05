@@ -1,0 +1,29 @@
+function encrypted_message = caesar_cipher(message, key, option)
+    % message: The text message you want to encrypt or decrypt
+    % key: The encryption or decryption key (the number of letters you want to shift the message by)
+    % option: 1 for encryption and -1 for decryption
+    
+    % Convert the message to lowercase
+    message = lower(message);
+    
+    % Determine the length of the message
+    n = length(message);
+    
+    % Create a vector to hold the encrypted message
+    encrypted_message = '';
+    
+    % Loop to encrypt or decrypt each letter in the message
+    for i = 1:n
+        % Get the current character
+        character = message(i);
+        
+        % If the character is a letter, shift it; otherwise, leave it as it is
+        if isletter(character)
+            % Shift the letter based on the encryption or decryption option
+            shifted_char = char(mod(double(character) - double('a') + option*key, 26) + double('a'));
+            encrypted_message = [encrypted_message, shifted_char];
+        else
+            encrypted_message = [encrypted_message, character];
+        end
+    end
+end
