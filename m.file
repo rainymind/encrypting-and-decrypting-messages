@@ -5,7 +5,7 @@ function encrypted_message = caesar_cipher(message, key, option)
     % Convert the message to lowercase.
     message = lower(message);
     
-    % Determine the length of the message
+    % Determine the length of the message.
     n = length(message);
     
     % Create a vector to hold the encrypted message
@@ -13,7 +13,7 @@ function encrypted_message = caesar_cipher(message, key, option)
     
     % Loop to encrypt or decrypt each letter in the message'
     for i = 1:n
-        % Get the current character
+        % Get the current character.
         character = message(i);
         
         % If the character is a letter, shift it; otherwise, leave it as it is
